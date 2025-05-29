@@ -1,0 +1,24 @@
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+.game-restart-button {
+  padding: 10px 20px;
+  font-size: 2.4rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.game-title {
+  margin-left: 1.5rem;
+}
+.game-timer {
+  font-size: 2rem;
+  margin-right: 1.5rem;
+}
