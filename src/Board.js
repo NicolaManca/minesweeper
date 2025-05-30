@@ -119,8 +119,6 @@ function Board({ size, handleSquareClick }) {
     function handleSquareClickBoard(squareId, hasBomb, bombsAround) {
       squaresClicked.current = squaresClicked.current + 1;
       let gameStatus = null;
-      console.log("Squares clicked:", squaresClicked.current);
-      console.log("size - bombNumber:", size - bombNumber);
       if (hasBomb) {
         _showBombs(bombs, squarePerRow);
         gameStatus = "lose";
@@ -131,7 +129,7 @@ function Board({ size, handleSquareClick }) {
         //Show all squares around
         _showAdjacentSquares(squareId, squarePerRow);
       }
-      handleSquareClick(gameStatus);
+      handleSquareClick(gameStatus, (squaresClicked.current > 1));
     }
   }
 

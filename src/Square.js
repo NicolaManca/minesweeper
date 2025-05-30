@@ -28,8 +28,7 @@ function Square({ id, hasBomb, bombsAround, handleSquareClick }) {
   const handleRightClick = (event) => {
     event.preventDefault();
     if (clicked || isGameOver) return;
-    if(flagged)
-      event.target = event.target.closest(".square");
+    if (flagged) event.target = event.target.closest(".square");
     event.target.classList.toggle("flagged");
     setFlagged(!flagged);
   };
@@ -48,9 +47,7 @@ function Square({ id, hasBomb, bombsAround, handleSquareClick }) {
       onClick={handleClick}
       onContextMenu={handleRightClick}
     >
-      <span className={squareContentClasses.join(" ")}>
-        {squareContent}
-      </span>
+      <span className={squareContentClasses.join(" ")}>{squareContent}</span>
     </div>
   );
 }
