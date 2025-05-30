@@ -85,7 +85,7 @@ function Board({ size, handleSquareClick }) {
   const squarePerRow = Math.sqrt(size);
   if (board.length === 0) {
     console.log("GENERATING BOARD");
-    const bombNumber = size / 5; // 20% of the squares will have bombs
+    const bombNumber = Math.ceil(size / 5); // 20% of the squares will have bombs
     const bombs = _assignBombsToSquares(bombNumber, squarePerRow);
     let boardT = [],
       squareId,
@@ -119,10 +119,12 @@ function Board({ size, handleSquareClick }) {
     function handleSquareClickBoard(squareId, hasBomb, bombsAround) {
       squaresClicked.current = squaresClicked.current + 1;
       let gameStatus = null;
+      console.log("Squares clicked:", squaresClicked.current);
+      console.log("size - bombNumber:", size - bombNumber);
       if (hasBomb) {
         _showBombs(bombs, squarePerRow);
         gameStatus = "lose";
-      } else if (squaresClicked.current === size - squarePerRow) {
+      } else if (squaresClicked.current === size - bombNumber) {
         _showBombs(bombs, squarePerRow);
         gameStatus = "win";
       } else if (bombsAround === 0) {
